@@ -7,11 +7,13 @@ alias open=xdg-open
 alias ll="ls -la"
 alias e="emacs &"
 
-
+### JAVA ###
 export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 export PATH=/usr/lib/jvm/java-7-oracle/bin:$PATH
 export CLASSPATH=.:/usr/lib/jvm/java-7-oracle
 
+### grunt-completion ###
+eval "$(grunt --completion=bash)"
 
 ### PATH ###
 export PATH=${PATH}:/usr/share/doc/git/contrib/diff-highlight
