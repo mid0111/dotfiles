@@ -16,6 +16,9 @@ export CLASSPATH=.:/usr/lib/jvm/java-7-oracle
 eval "$(grunt --completion=bash)"
 
 ### PATH ###
-export PATH=${PATH}:/usr/share/doc/git/contrib/diff-highlight
+export PATH=${PATH}:/usr/share/doc/git/contrib/diff-highlight:$HOME/.cask/bin
 
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/mid/.gvm/bin/gvm-init.sh" ]] && source "/home/mid/.gvm/bin/gvm-init.sh"
