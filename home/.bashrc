@@ -6,6 +6,7 @@ export PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[00;032m\]$(__git_ps1)\[\033[00m\
 alias open=xdg-open
 alias ll="ls -la"
 alias e="emacs &"
+alias i="idea.sh &"
 
 ### JAVA ###
 export JAVA_HOME=/usr/lib/jvm/java-7-oracle
