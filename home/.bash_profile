@@ -5,3 +5,7 @@
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/home/mid/.gvm/bin/gvm-init.sh" ]] && source "/home/mid/.gvm/bin/gvm-init.sh"
+
+if [ -f ~/.bashrc ] ; then
+  . ~/.bashrc
+fi
