@@ -9,7 +9,7 @@ alias e="emacs &"
 alias i="idea.sh &"
 
 ### JAVA ###
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+export JAVA_HOME=/opt/java/jdk1.8.0
 export PATH=/usr/lib/jvm/java-7-oracle/bin:$PATH
 export CLASSPATH=.:/usr/lib/jvm/java-7-oracle
 
