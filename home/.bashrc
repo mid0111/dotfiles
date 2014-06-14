@@ -6,7 +6,8 @@ export PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[00;032m\]$(__git_ps1)\[\033[00m\
 alias open=xdg-open
 alias ll="ls -la"
 alias e="emacs &"
-alias i="idea.sh &"
+alias i="idea &"
+alias grep="grep -n --color=auto"
 
 ### JAVA ###
 export JAVA_HOME=/opt/java/jdk1.8.0
@@ -23,3 +24,8 @@ export PATH=${PATH}:/usr/share/doc/git/contrib/diff-highlight:$HOME/.cask/bin
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/home/mid/.gvm/bin/gvm-init.sh" ]] && source "/home/mid/.gvm/bin/gvm-init.sh"
+
+### Added by the Heroku Toolbelt
+if [ -f '.heroku-toolbet' ]; then
+  . '.heroku-toolbet'
+fi
