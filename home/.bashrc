@@ -7,6 +7,7 @@ alias ll="ls -la"
 alias e="emacs &"
 alias i="idea.sh &"
 alias wget="curl -O"
+alias grep="grep -n --color=auto"
 
 ### grunt-completion ###
 eval "$(grunt --completion=bash)"
