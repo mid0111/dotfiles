@@ -8,6 +8,8 @@ alias e="emacs &"
 alias i="idea.sh &"
 alias wget="curl -O"
 alias grep="grep -n --color=auto"
+alias egrep="egrep -n --color=auto"
+alias ls='gls --color=auto'
 
 ### grunt-completion ###
 eval "$(grunt --completion=bash)"
@@ -16,5 +18,5 @@ eval "$(grunt --completion=bash)"
 eval "$(rbenv init -)"
 
 ### PATH ###
-export PATH=${PATH}:/usr/share/doc/git/contrib/diff-highlight:$HOME/.cask/bin
+export PATH=${PATH}:/usr/share/doc/git/contrib:$HOME/.cask/bin
 
