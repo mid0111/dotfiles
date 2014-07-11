@@ -1,10 +1,12 @@
+EMACS_APP="/Applications/Emacs.app/Contents/MacOS/Emacs"
+
 ### PS ###
 source /etc/bash_completion.d/git-prompt.sh
 export PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[00;032m\]$(__git_ps1)\[\033[00m\] % '
 
 ### alias ###
 alias ll="ls -la"
-alias e="emacs &"
+alias e="${EMACS_APP} &"
 alias i="idea.sh &"
 alias wget="curl -O"
 alias grep="grep -n --color=auto"
