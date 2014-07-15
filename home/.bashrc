@@ -13,6 +13,14 @@ alias grep="grep -n --color=auto"
 alias egrep="egrep -n --color=auto"
 alias ls='gls --color=auto'
 
+### git, github ###
+if [ -f /etc/bash_completion.d/git-completion.bash ]; then
+    source /etc/bash_completion.d/git-completion.bash 
+fi
+if [ -f /etc/hub.bash_completion.sh ]; then
+    source /etc/hub.bash_completion.sh
+fi
+
 ### grunt-completion ###
 eval "$(grunt --completion=bash)"
 
