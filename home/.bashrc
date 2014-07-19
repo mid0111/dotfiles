@@ -1,8 +1,7 @@
+### Environment settings ###
 EMACS_APP="/Applications/Emacs.app/Contents/MacOS/Emacs"
-
-### PS ###
-source /etc/bash_completion.d/git-prompt.sh
-export PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[00;032m\]$(__git_ps1)\[\033[00m\] % '
+GIT_COMPLETION_PATH="/etc/bash_completion.d/git-prompt.sh"
+HUB_COMPLETION_PATH="/etc/hub.bash_completion.sh"
 
 ### alias ###
 alias ll="ls -la"
@@ -14,18 +13,22 @@ alias egrep="egrep -n --color=auto"
 alias ls='gls --color=auto'
 
 ### git, github ###
-if [ -f /etc/bash_completion.d/git-completion.bash ]; then
-    source /etc/bash_completion.d/git-completion.bash 
+source ${GIT_COMPLETION_PATH}
+if [ -f ${HUB_COMPLETION_PATH} ]; then
+    source ${HUB_COMPLETION_PATH}
 fi
-if [ -f /etc/hub.bash_completion.sh ]; then
-    source /etc/hub.bash_completion.sh
-fi
+
+### gulp-completion ###
+eval "$(gulp --completion=bash)"
 
 ### grunt-completion ###
 eval "$(grunt --completion=bash)"
 
 ### rvm ###
 eval "$(rbenv init -)"
+
+### PS with git ###
+export PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[00;032m\]$(__git_ps1)\[\033[00m\] % '
 
 ### PATH ###
 export PATH=${PATH}:/usr/share/doc/git/contrib:$HOME/.cask/bin
