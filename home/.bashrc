@@ -1,6 +1,7 @@
 ### Environment settings ###
 EMACS_APP="/Applications/Emacs.app/Contents/MacOS/Emacs"
-GIT_COMPLETION_PATH="/etc/bash_completion.d/git-prompt.sh"
+GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt.sh"
+GIT_COMPLETION_PATH="/etc/bash_completion.d/git-completion.bash"
 HUB_COMPLETION_PATH="/etc/hub.bash_completion.sh"
 
 ### alias ###
@@ -31,5 +32,6 @@ eval "$(rbenv init -)"
 export PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[00;032m\]$(__git_ps1)\[\033[00m\] % '
 
 ### PATH ###
+source ${GIT_PROMPT_PATH}
 export PATH=${PATH}:/usr/share/doc/git/contrib:$HOME/.cask/bin
 
