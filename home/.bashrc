@@ -1,12 +1,12 @@
 ### Environment settings ###
-EMACS_APP="/Applications/Emacs.app/Contents/MacOS/Emacs"
+EMACS_DIR="/Applications/Emacs.app/Contents/MacOS"
 GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt.sh"
 GIT_COMPLETION_PATH="/etc/bash_completion.d/git-completion.bash"
 HUB_COMPLETION_PATH="/etc/hub.bash_completion.sh"
 
 ### alias ###
 alias ll="ls -la"
-alias e="${EMACS_APP} &"
+alias e='${EMACS_DIR}/bin/emacsclient -n'
 alias i="idea.sh &"
 alias wget="curl -O"
 alias grep="grep -n --color=auto"
@@ -27,6 +27,9 @@ eval "$(grunt --completion=bash)"
 
 ### rvm ###
 eval "$(rbenv init -)"
+
+### boot2docker ###
+export DOCKER_HOST=tcp://192.168.59.103:2375
 
 ### PS with git ###
 export PS1='\[\033[01;34m\]\W\[\033[00m\]\[\033[00;032m\]$(__git_ps1)\[\033[00m\] % '
