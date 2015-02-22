@@ -59,3 +59,9 @@ export PATH="/usr/local/heroku/bin:/Library/Developer/CommandLineTools/usr/bin:$
 
 # added by travis gem
 [ -f /Users/mid/.travis/travis.sh ] && source /Users/mid/.travis/travis.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/mid/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+source '/Users/mid/google-cloud-sdk/completion.bash.inc'

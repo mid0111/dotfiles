@@ -1,2 +1,7 @@
 .tern-port
 .DS_Store
+
+# eclipse
+.classpath
+.settings
+.project
