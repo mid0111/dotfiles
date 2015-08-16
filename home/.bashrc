@@ -1,5 +1,4 @@
 ### Environment settings ###
-EMACS_DIR="/Applications/Emacs.app/Contents/MacOS"
 GIT_PROMPT_PATH="/etc/bash_completion.d/git-prompt.sh"
 GIT_COMPLETION_PATH="/etc/bash_completion.d/git-completion.bash"
 HUB_COMPLETION_PATH="/etc/hub.bash_completion.sh"
@@ -7,7 +6,7 @@ AWS_CONFIG_PATH="/Users/mid/.aws/user"
 
 ### alias ###
 alias ll="ls -la"
-alias e='${EMACS_DIR}/bin/emacsclient -n'
+alias e='emacsclient -n'
 alias i="idea.sh &"
 alias wget="curl -O"
 alias grep="grep -n --color=auto"
@@ -19,9 +18,6 @@ source ${GIT_COMPLETION_PATH}
 if [ -f ${HUB_COMPLETION_PATH} ]; then
     source ${HUB_COMPLETION_PATH}
 fi
-
-### Emacs and cask for Mac ###
-export EMACS=${EMACS_DIR}/Emacs
 
 ### gulp-completion ###
 eval "$(gulp --completion=bash)"
@@ -59,9 +55,3 @@ export PATH="/usr/local/heroku/bin:/Library/Developer/CommandLineTools/usr/bin:$
 
 # added by travis gem
 [ -f /Users/mid/.travis/travis.sh ] && source /Users/mid/.travis/travis.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/mid/google-cloud-sdk/path.bash.inc'
-
-# The next line enables bash completion for gcloud.
-source '/Users/mid/google-cloud-sdk/completion.bash.inc'

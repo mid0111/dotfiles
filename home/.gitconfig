@@ -14,7 +14,7 @@
 	diff = diff-highlight | less
 
 [core]
-	editor = /Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+	editor = emacsclient
 	autocrlf = input
 	excludesfile = /Users/mid/.gitignore
 
@@ -22,9 +22,9 @@
 	ui = true
 
 [filter "media"]
+	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
-	required = true
 
 [alias]
 	oneline = log --oneline --decorate --graph
