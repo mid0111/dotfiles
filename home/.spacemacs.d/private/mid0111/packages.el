@@ -13,9 +13,10 @@
 ;; List of all packages to install and/or initialize. Built-in packages
 ;; which require an initialization must be listed explicitly in the list.
 (setq mid0111-packages
-    '(
-      ;; package names go here
-      ))
+      '(
+        ;; package names go here
+        helm-ls-git
+        helm-git-grep ))
 
 ;; List of packages to exclude.
 (setq mid0111-excluded-packages '())
@@ -26,6 +27,15 @@
 ;;   "Initialize my package"
 ;;   )
 ;;
+(defun mid0111/init-helm-ls-git ()
+  (use-package helm-ls-git
+    :config
+    (setq-default helm-ls-git-show-abs-or-relative 'absolute)))
+
+(defun mid0111/init-helm-git-grep ())
+
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
 ;; https://github.com/jwiegley/use-package
+
+
