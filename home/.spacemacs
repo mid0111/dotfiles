@@ -35,8 +35,7 @@
      javascript
      markdown
      shell-scripts
-     ;; themes
-     themes-megapack
+     web-mode
      ;; users
      mid0111
      )
@@ -77,7 +76,7 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-theme '(brin)
+   dotspacemacs-theme '(misterioso)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -167,7 +166,13 @@ before layers configuration."
 layers configuration."
   (global-linum-mode t) ; Show line numbers by default
   (windmove-default-keybindings) ; windmove
-  )
+
+  (setq indent-tabs-mode nil)
+  (setq js-indent-level 2) ; js-mode
+  (setq js2-basic-offset 2) ; js2-mode
+
+  (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
