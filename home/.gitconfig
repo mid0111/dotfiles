@@ -16,7 +16,7 @@
 [core]
 	editor = emacsclient
 	autocrlf = input
-	excludesfile = /Users/mid/.gitignore
+	excludesfile = /Users/mid0111/.gitignore
 
 [color]
 	ui = true
