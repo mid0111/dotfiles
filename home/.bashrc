@@ -45,8 +45,10 @@ source ${GIT_PROMPT_PATH}
 [ -f /Users/mid/.travis/travis.sh ] && source /Users/mid/.travis/travis.sh
 
 ### proxy ###
-export http_proxy=http://{user_id}:{user_password}@{proxy_host}:{proxy_port}
-export HTTP_PROXY=$http_proxy
-export https_proxy=$http_proxy
-export HTTPS_PROXY=$http_proxy
-
+if [ -f ~/.proxy ]; then
+  source ~/.proxy
+  export http_proxy=http://${PROXY_USER}:${PROXY_PASSWD}@${PROXY_HOST}:${PROXY_PORT}
+  export HTTP_PROXY=$http_proxy
+  export https_proxy=$http_proxy
+  export HTTPS_PROXY=$http_proxy
+fi
