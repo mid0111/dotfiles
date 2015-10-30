@@ -24,6 +24,7 @@ eval "$(gulp --completion=bash)"
 
 ### docker ###
 eval "$(docker-machine env default)"
+export NO_PROXY=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
 
 ### aws ###
 if [ -f ${AWS_CONFIG_PATH} ]; then
@@ -42,3 +43,10 @@ source ${GIT_PROMPT_PATH}
 
 # added by travis gem
 [ -f /Users/mid/.travis/travis.sh ] && source /Users/mid/.travis/travis.sh
+
+### proxy ###
+export http_proxy=http://{user_id}:{user_password}@{proxy_host}:{proxy_port}
+export HTTP_PROXY=$http_proxy
+export https_proxy=$http_proxy
+export HTTPS_PROXY=$http_proxy
+
