@@ -36,6 +36,8 @@
      markdown
      shell-scripts
      web-mode
+     yaml
+
      ;; users
      mid0111
      )
@@ -166,6 +168,9 @@ before layers configuration."
 layers configuration."
   (global-linum-mode t) ; Show line numbers by default
   (windmove-default-keybindings) ; windmove
+  ; 等幅フォント用
+  ;(add-to-list 'face-font-rescale-alist
+  ;             '(".*Hiragino Kaku Gothic ProN.*" . 1.2))
 
   (setq indent-tabs-mode nil)
 
