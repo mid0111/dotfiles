@@ -1,0 +1,9 @@
+#!/bin/bash
+
+alias ll="ls -la"
+alias e='emacsclient -n'
+alias i="idea.sh &"
+alias wget="curl -O"
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias ls='gls --color=auto'
