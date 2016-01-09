@@ -7,3 +7,4 @@ alias wget="curl -O"
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias ls='gls --color=auto'
+alias bower='./node_modules/bower/bin/bower'
