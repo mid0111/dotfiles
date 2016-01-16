@@ -13,13 +13,17 @@ if [ -f $GIT_SETTINGS ]; then
 fi
 
 ### gulp-completion ###
-eval "$(gulp --completion=bash)"
+if [ `which gulp` ]; then
+    eval "$(gulp --completion=bash)"
+fi
 
 ### docker ###
-eval "$(docker-machine env default)"
-export DOCKER_IP=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
-if [ -f ${HOME}/.proxy ]; then
-    export NO_PROXY=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
+if [ `which docker-machine` ]; then
+    eval "$(docker-machine env default)"
+    export DOCKER_IP=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
+    if [ -f ${HOME}/.proxy ]; then
+        export NO_PROXY=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
+    fi
 fi
 
 # added by travis gem
@@ -32,4 +36,9 @@ if [ -f ${HOME}/.proxy ]; then
     export HTTP_PROXY=$http_proxy
     export https_proxy=$http_proxy
     export HTTPS_PROXY=$http_proxy
+
+    cat > ${HOME}/.curlrc <<EOF
+proxy-user = "${PROXY_USER}:${PROXY_PASSWD}"
+proxy = "http://${PROXY_HOST}:${PROXY_PORT}"
+EOF
 fi
