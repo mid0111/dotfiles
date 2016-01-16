@@ -1,6 +1,6 @@
 ### Environment settings ###
-ALIAS_SETTINGS=".bash/alias"
-GIT_SETTINGS=".bash/git"
+ALIAS_SETTINGS="${HOME}/.bash/alias"
+GIT_SETTINGS="${HOME}/.bash/git"
 
 ### alias ###
 if [ -f $ALIAS_SETTINGS ]; then
@@ -18,7 +18,7 @@ eval "$(gulp --completion=bash)"
 ### docker ###
 eval "$(docker-machine env default)"
 export DOCKER_IP=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
-if [ -f ~/.proxy ]; then
+if [ -f ${HOME}/.proxy ]; then
     export NO_PROXY=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
 fi
 
@@ -26,8 +26,8 @@ fi
 [ -f /Users/mid/.travis/travis.sh ] && source /Users/mid/.travis/travis.sh
 
 ### proxy ###
-if [ -f ~/.proxy ]; then
-    source ~/.proxy
+if [ -f ${HOME}/.proxy ]; then
+    source ${HOME}/.proxy
     export http_proxy=http://${PROXY_USER}:${PROXY_PASSWD}@${PROXY_HOST}:${PROXY_PORT}
     export HTTP_PROXY=$http_proxy
     export https_proxy=$http_proxy
