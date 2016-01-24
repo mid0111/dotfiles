@@ -13,6 +13,11 @@ if [ -f ${HUB_COMPLETION_PATH} ]; then
     source ${HUB_COMPLETION_PATH}
 fi
 
+## HUB Alias
+if [ `which hub` ]; then
+    eval "$(hub alias -s)"
+fi
+
 ### PS with git ###
 if [ -f ${GIT_PROMPT_PATH} ]; then
     source ${GIT_PROMPT_PATH}
