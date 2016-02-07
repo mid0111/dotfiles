@@ -27,6 +27,8 @@ values."
      ;; better-defaults
      emacs-lisp
      git
+     dash
+     emoji
      markdown
      ansible
      javascript
@@ -116,7 +118,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -271,7 +273,8 @@ layers configuration. You are free to put any user code."
    web-mode-attr-indent-offset 2)
 
   ;; go
-  (add-to-list 'exec-path (expand-file-name "~/.gvm/pkgsets/go1.5/global/bin/"))
+  ;; Automatically call gofmt on save
+  (add-hook 'before-save-hook 'gofmt-before-save)
 
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
