@@ -33,7 +33,8 @@ values."
      ansible
      javascript
      shell-scripts
-     web-mode
+     typescript
+     html
      yaml
      go
      ;; org
@@ -53,6 +54,8 @@ values."
    dotspacemacs-additional-packages
    '(
      editorconfig
+     tide
+     company
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -274,7 +277,17 @@ layers configuration. You are free to put any user code."
 
   ;; go
   ;; Automatically call gofmt on save
-  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'go-mode-hook '(lambda () ('before-save-hook 'gofmt-before-save)))
+
+  ;; ts
+  (setq typescript-indent-level 2)
+  (add-hook 'typescript-mode-hook
+            (lambda ()
+              (tide-setup)
+              (flycheck-mode +1)
+              (setq flycheck-check-syntax-automatically '(save mode-enabled))
+              (eldoc-mode +1)
+              (company-mode-on)))
 
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
