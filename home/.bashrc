@@ -43,5 +43,3 @@ proxy = "http://${PROXY_HOST}:${PROXY_PORT}"
 EOF
 fi
 
-### Go ###
-export GO15VENDOREXPERIMENT=1
