@@ -16,7 +16,8 @@
       '(
         ;; package names go here
         helm-ls-git
-        helm-git-grep ))
+        helm-git-grep
+        stylus-mode ))
 
 ;; List of packages to exclude.
 (setq mid0111-excluded-packages '())
@@ -33,6 +34,10 @@
     (setq-default helm-ls-git-show-abs-or-relative 'absolute)))
 
 (defun mid0111/init-helm-git-grep ())
+
+(defun mid0111/init-stylus-mode ()
+  (use-package stylus-mode
+    :mode (("\\.styl\\'" . stylus-mode))))
 
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
