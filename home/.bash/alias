@@ -1,6 +1,8 @@
 #!/bin/bash
 
-alias ll="ls -la"
+alias ll="ls -lAF"
+alias la="ls -aF"
+alias lf="ls -FA"
 alias e='emacsclient -n'
 alias i="idea.sh &"
 alias wget="curl -O"

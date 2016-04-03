@@ -266,6 +266,8 @@ layers configuration. You are free to put any user code."
   ;;             '(".*Hiragino Kaku Gothic ProN.*" . 1.2))
 
   (setq-default
+   ;; json用
+   js-indent-level 2
    ;; js2-mode
    js2-basic-offset 2
    ;; web-mode
@@ -293,6 +295,7 @@ layers configuration. You are free to put any user code."
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
