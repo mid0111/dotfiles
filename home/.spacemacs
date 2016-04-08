@@ -33,7 +33,8 @@ values."
      ansible
      javascript
      shell-scripts
-     web-mode
+     typescript
+     html
      yaml
      go
      ;; org
@@ -53,6 +54,8 @@ values."
    dotspacemacs-additional-packages
    '(
      editorconfig
+     tide
+     company
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -263,6 +266,8 @@ layers configuration. You are free to put any user code."
   ;;             '(".*Hiragino Kaku Gothic ProN.*" . 1.2))
 
   (setq-default
+   ;; json用
+   js-indent-level 2
    ;; js2-mode
    js2-basic-offset 2
    ;; web-mode
@@ -274,12 +279,23 @@ layers configuration. You are free to put any user code."
 
   ;; go
   ;; Automatically call gofmt on save
-  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'go-mode-hook '(lambda () ('before-save-hook 'gofmt-before-save)))
+
+  ;; ts
+  (setq typescript-indent-level 2)
+  (add-hook 'typescript-mode-hook
+            (lambda ()
+              (tide-setup)
+              (flycheck-mode +1)
+              (setq flycheck-check-syntax-automatically '(save mode-enabled))
+              (eldoc-mode +1)
+              (company-mode-on)))
 
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
