@@ -28,7 +28,6 @@ values."
      emacs-lisp
      git
      dash
-     emoji
      markdown
      ansible
      javascript
@@ -70,6 +69,7 @@ This function is called at the very startup of Spacemacs initialization
 before layers configuration.
 You should not put any user code in there besides modifying the variable
 values."
+
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -79,7 +79,7 @@ values."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-https nil
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
@@ -251,7 +251,18 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
-in `dotspacemacs/user-config'.")
+in `dotspacemacs/user-config'."
+  ;; proxy settings
+  (setq url-proxy-services
+   '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+     ("http" . "hkt.proxy.nic.fujitsu.com:8080")
+     ("https" . "hkt.proxy.nic.fujitsu.com:8080")))
+
+  (setq url-http-proxy-basic-auth-storage
+    (list (list "hkt.proxy.nic.fujitsu.com:8080"
+                (cons "Input your LDAP UID !"
+                      (base64-encode-string "807180:0425453402")))))
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
