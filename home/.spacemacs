@@ -24,10 +24,8 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     ;; better-defaults
      emacs-lisp
      git
-     dash
      markdown
      ansible
      javascript
@@ -40,9 +38,7 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
-     ;; spell-checking
-     syntax-checking
-     version-control
+
      ;; users
      mid0111
      )
@@ -55,6 +51,7 @@ values."
      editorconfig
      tide
      company
+     mocha
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -268,10 +265,16 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
   ;; Show line numbers by default
   (global-linum-mode t)
+
+  ;; window-size
+  (when window-system (set-frame-size (selected-frame) 90 52))
+
   ;; windmove
   (windmove-default-keybindings)
+
   ;; 等幅フォント用
   ;;(add-to-list 'face-font-rescale-alist
   ;;             '(".*Hiragino Kaku Gothic ProN.*" . 1.2))
@@ -301,8 +304,8 @@ layers configuration. You are free to put any user code."
               (setq flycheck-check-syntax-automatically '(save mode-enabled))
               (eldoc-mode +1)
               (company-mode-on)))
-  ;; formats the buffer before saving
-  (add-hook 'before-save-hook 'tide-format-before-save)
+  ;; aligns annotation to the right hand side
+  (setq company-tooltip-align-annotations t)
 
   ;; tsx
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
@@ -315,11 +318,16 @@ layers configuration. You are free to put any user code."
                 (eldoc-mode +1)
                 (company-mode-on))))
 
+  ;; jsx
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
 
+  ;; mocha
+  (setq mocha-command "node_modules/.bin/mocha")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
