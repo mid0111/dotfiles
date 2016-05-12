@@ -17,6 +17,7 @@
 	editor = emacsclient
 	autocrlf = input
 	excludesfile = /Users/mid0111/.gitignore
+	ignorecase = false
 
 [color]
 	ui = true
