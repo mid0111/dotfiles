@@ -327,7 +327,9 @@ layers configuration. You are free to put any user code."
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
 
   ;; mocha
-  (setq mocha-command "node_modules/.bin/mocha")
+  (setq mocha-command "/usr/local/bin/mocha")
+  (setq mocha-options "--reporter dot -t 10000")
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
