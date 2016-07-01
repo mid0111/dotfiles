@@ -32,14 +32,15 @@ fi
 ### proxy ###
 if [ -f ${HOME}/.proxy ]; then
     source ${HOME}/.proxy
-    export http_proxy=http://${PROXY_USER}:${PROXY_PASSWD}@${PROXY_HOST}:${PROXY_PORT}
+    # export http_proxy=http://${PROXY_USER}:${PROXY_PASSWD}@${PROXY_HOST}:${PROXY_PORT}
+    export http_proxy="http://localhost:8080"
     export HTTP_PROXY=$http_proxy
     export https_proxy=$http_proxy
     export HTTPS_PROXY=$http_proxy
 
-    cat > ${HOME}/.curlrc <<EOF
-proxy-user = "${PROXY_USER}:${PROXY_PASSWD}"
-proxy = "http://${PROXY_HOST}:${PROXY_PORT}"
-EOF
+#     cat > ${HOME}/.curlrc <<EOF
+# proxy-user = "${PROXY_USER}:${PROXY_PASSWD}"
+# proxy = "http://${PROXY_HOST}:${PROXY_PORT}"
+# EOF
 fi
 
