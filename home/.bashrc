@@ -18,13 +18,13 @@ if [ `which gulp` ]; then
 fi
 
 ### docker ###
-#if [ `which docker-machine` ]; then
-#    eval "$(docker-machine env default)"
-#    export DOCKER_IP=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
-#    if [ -f ${HOME}/.proxy ]; then
-#        export NO_PROXY=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
-#    fi
-#fi
+if vboxmanage list runningvms | grep default > /dev/null ; then
+    eval "$(docker-machine env default)"
+    export DOCKER_IP=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
+    if [ -f ${HOME}/.proxy ]; then
+        export NO_PROXY=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
+    fi
+fi
 
 # added by travis gem
 [ -f /Users/mid/.travis/travis.sh ] && source /Users/mid/.travis/travis.sh
