@@ -307,6 +307,7 @@ layers configuration. You are free to put any user code."
                 (company-mode-on))))
 
   ;; jsx
+  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
   (with-eval-after-load 'web-mode
