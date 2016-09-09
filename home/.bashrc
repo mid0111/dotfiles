@@ -18,7 +18,7 @@ if [ `which gulp` ]; then
 fi
 
 ### docker ###
-if [ `which docker-machine` ]; then
+if vboxmanage list runningvms | grep default > /dev/null ; then
     eval "$(docker-machine env default)"
     export DOCKER_IP=$(echo $DOCKER_HOST | sed 's/tcp:\/\/\([^:]*\).*/\1/')
     if [ -f ${HOME}/.proxy ]; then
