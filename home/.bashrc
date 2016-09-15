@@ -29,6 +29,25 @@ fi
 # added by travis gem
 [ -f /Users/mid/.travis/travis.sh ] && source /Users/mid/.travis/travis.sh
 
+### node version check ###
+cd() {
+    if [ "$1x" == "x" ]; then
+        builtin cd ~
+    else
+        builtin cd "$1"
+    fi
+
+    if [ `which node` -a -f package.json ]; then
+        CURRENT_NODE_VERSION=$(node --version | sed 's/v\(.*\)/\1/')
+        REQUIRE_NODE_VERSION="UNKNOWN"
+        if [ `which jq` ]; then
+            REQUIRE_NODE_VERSION=$(jq .engines.node package.json)
+        fi
+        echo "🐤 🐤 🐤  Current node version: ${CURRENT_NODE_VERSION}"
+        echo "🍄 🍄 🍄  Require node version: ${REQUIRE_NODE_VERSION}"
+    fi
+}
+
 ### proxy ###
 if [ -f ${HOME}/.proxy ]; then
     source ${HOME}/.proxy
