@@ -66,6 +66,7 @@ This function is called at the very startup of Spacemacs initialization
 before layers configuration.
 You should not put any user code in there besides modifying the variable
 values."
+
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
@@ -247,7 +248,18 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
-in `dotspacemacs/user-config'.")
+in `dotspacemacs/user-config'."
+  ;; ;; proxy settings
+  ;; (setq url-proxy-services
+  ;;  '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+  ;;    ("http" . "hkt.proxy.nic.fujitsu.com:8080")
+  ;;    ("https" . "hkt.proxy.nic.fujitsu.com:8080")))
+
+  ;; (setq url-http-proxy-basic-auth-storage
+  ;;   (list (list "hkt.proxy.nic.fujitsu.com:8080"
+  ;;               (cons "Input your LDAP UID !"
+  ;;                     (base64-encode-string "807180:0425453402")))))
+)
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -315,7 +327,9 @@ layers configuration. You are free to put any user code."
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
 
   ;; mocha
-  (setq mocha-command "node_modules/.bin/mocha")
+  (setq mocha-command "/usr/local/bin/mocha")
+  (setq mocha-options "--reporter dot -t 10000")
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
