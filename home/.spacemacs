@@ -327,7 +327,7 @@ layers configuration. You are free to put any user code."
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
 
   ;; mocha
-  (setq mocha-command "/usr/local/bin/mocha")
+  (setq mocha-command "~/n/bin/mocha")
   (setq mocha-options "--reporter dot -t 10000")
 
   ;; markdown
