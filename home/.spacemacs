@@ -330,6 +330,8 @@ layers configuration. You are free to put any user code."
   (setq mocha-command "/usr/local/bin/mocha")
   (setq mocha-options "--reporter dot -t 10000")
 
+  ;; markdown
+  (setq markdown-command "multimarkdown")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
