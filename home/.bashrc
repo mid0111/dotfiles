@@ -31,9 +31,11 @@ cd() {
     fi
 }
 
-### local proxy ###
+# yarn
+export PATH="$HOME/.yarn/bin:$PATH"
+
+### proxy ###
 if [ -f ${HOME}/.proxy ]; then
     export HTTP_PROXY="http://localhost:8080"
     export HTTPS_PROXY=$http_proxy
 fi
-

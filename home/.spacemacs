@@ -34,6 +34,7 @@ values."
      html
      yaml
      go
+     syntax-checking
      ;; org
      (shell :variables
             shell-default-height 30
@@ -86,7 +87,10 @@ values."
    ;; variable is `emacs' then the `holy-mode' is enabled at startup. `hybrid'
    ;; uses emacs key bindings for vim's insert mode, but otherwise leaves evil
    ;; unchanged. (default 'vim)
-   dotspacemacs-editing-style 'emacs
+   dotspacemacs-editing-style '(hybrid :variables
+                                       hybrid-mode-enable-evilified-state nil
+                                       hybrid-mode-enable-hjkl-bindings t
+                                       hybrid-mode-default-state 'emacs)
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -320,7 +324,10 @@ layers configuration. You are free to put any user code."
 
   ;; jsx
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+
+  ;; flycheck
+  ;; disable eslint
+  (setq-default flycheck-disabled-checkers '(javascript-eslint))
 
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
