@@ -34,6 +34,7 @@ values."
      html
      yaml
      go
+     syntax-checking
      ;; org
      (shell :variables
             shell-default-height 30
@@ -320,7 +321,10 @@ layers configuration. You are free to put any user code."
 
   ;; jsx
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+
+  ;; flycheck
+  ;; disable eslint
+  (setq-default flycheck-disabled-checkers '(javascript-eslint))
 
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
