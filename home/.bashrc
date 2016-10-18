@@ -37,3 +37,5 @@ if [ -f ${HOME}/.proxy ]; then
     export HTTPS_PROXY=$http_proxy
 fi
 
+### completion ###
+source ~/.bash_completion.d/*
