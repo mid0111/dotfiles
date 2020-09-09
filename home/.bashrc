@@ -34,6 +34,9 @@ cd() {
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
 
+# gem
+export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+
 ### proxy ###
 if [ -f ${HOME}/.proxy ]; then
     export HTTP_PROXY="http://localhost:8080"
@@ -42,3 +45,6 @@ fi
 
 ### completion ###
 source ~/.bash_completion.d/*
+
+# added by travis gem
+[ -f /Users/mid0111/.travis/travis.sh ] && source /Users/mid0111/.travis/travis.sh

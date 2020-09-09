@@ -1,34 +1,99 @@
 // Place your settings in this file to overwrite the default settings
 {
-  "editor.fontSize": 14,
+  "editor.fontSize": 12,
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
-  "eslint.autoFixOnSave": true,
+  "editor.minimap.enabled": false,
   "files.associations": {
     "*.ejs": "html"
   },
-  "html.format.indentInnerHtml": true,
-  "window.zoomLevel": -1,
-  "beautify.language": {
-    "js": {
-      "type": [
-        "javascript",
-        "json"
-      ],
-      "filename": [
-        ".jshintrc",
-        ".jsbeautify"
-      ]
-    },
-    "css": [
-      "css",
-      "scss"
-    ],
-    "html": [
-      "htm",
-      "html",
-      "ejs"
+  "tslint.autoFixOnSave": true,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "text.html.markdown.journal.task.open.bullet",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.open.marker",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.open.keyword",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.open.text",
+        "settings": {}
+      },
+      {
+        "scope": "text.html.markdown.journal.task.completed.keyword",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.completed.marker",
+        "settings": {
+          "foreground": "#AAAAAA"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.completed.text",
+        "settings": {
+          "foreground": "#AAAAAA"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.task.completed.bullet",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.memo.keyword",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.memo.bullet",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.scope",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.link.keyword",
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": "text.html.markdown.journal.link.bullet",
+        "settings": {
+          "foreground": "#FFFF00"
+        }
+      }
     ]
-  }
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDragAndDrop": false,
+  "window.zoomLevel": 0,
+  "projectManager.git.baseFolders": [
+    "/Users/mid0111/src"
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
