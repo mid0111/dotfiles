@@ -31,9 +31,6 @@ cd() {
     fi
 }
 
-# yarn
-export PATH="$HOME/.yarn/bin:$PATH"
-
 # gem
 export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 
