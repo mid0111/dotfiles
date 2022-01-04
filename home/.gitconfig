@@ -14,7 +14,7 @@
 	#diff = diff-highlight | less
 
 [core]
-	editor = vim
+	editor = code --wait
 	autocrlf = input
 	excludesfile = /Users/mid0111/.gitignore
 	ignorecase = false
