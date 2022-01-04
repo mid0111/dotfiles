@@ -1,27 +1,13 @@
 #!/bin/bash
 
 ### Environment settings ###
-GIT_PROMPT_PATH="/etc/git/git-prompt.sh"
-#GIT_COMPLETION_PATH="/usr/local/etc/profile.d/bash_completion.sh"
-HUB_COMPLETION_PATH="/etc/git/hub.bash_completion.sh"
+GIT_PROMPT_PATH="${HOME}/.bash/git-prompt.sh"
+GIT_COMPLETION_PATH="${HOME}/.bash/git-completion.bash"
 
 ### Auto completion ###
-# if [ -f ${GIT_COMPLETION_PATH} ]; then
-#     source ${GIT_COMPLETION_PATH}
-# fi
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-
-autoload -U compinit
-compinit -u
-
-if [ -f ${HUB_COMPLETION_PATH} ]; then
-    source ${HUB_COMPLETION_PATH}
-fi
-
-## HUB Alias
-if [ `which hub` ]; then
-    eval "$(hub alias -s)"
-fi
+zstyle ':completion:*:*:git:*' script ${GIT_COMPLETION_PATH}
+autoload -Uz compinit && compinit
 
 ### PS with git ###
 if [ -f ${GIT_PROMPT_PATH} ]; then
@@ -31,5 +17,6 @@ if [ -f ${GIT_PROMPT_PATH} ]; then
     GIT_PS1_SHOWUNTRACKEDFILES=
     GIT_PS1_SHOWSTASHSTATE=1
 
-    setopt PROMPT_SUBST ; PS1='%F{cyan}%n@%m %f%F{magenta}%c%f %F{green}$(__git_ps1 "(%s) ")%f${reset_color}%# '
+    setopt PROMPT_SUBST ; PS1='%F{cyan}%n@%m %f%F{magenta}%c%f %F{green}$(__git_ps1 "(%s) ")%f${reset_color}
+%# '
 fi

@@ -11,3 +11,5 @@ fi
 if [ -f $GIT_SETTINGS ]; then
     source $GIT_SETTINGS
 fi
+
+export PATH=$HOME/.nodebrew/current/bin:$PATH
