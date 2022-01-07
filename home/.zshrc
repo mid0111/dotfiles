@@ -1,3 +1,8 @@
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init -)"
+
 ### Environment settings ###
 ALIAS_SETTINGS="${HOME}/.bash/alias"
 GIT_SETTINGS="${HOME}/.bash/git"
@@ -11,5 +16,3 @@ fi
 if [ -f $GIT_SETTINGS ]; then
     source $GIT_SETTINGS
 fi
-
-export PATH=$HOME/.nodebrew/current/bin:$PATH
